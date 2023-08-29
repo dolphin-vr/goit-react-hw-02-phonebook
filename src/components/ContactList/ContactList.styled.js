@@ -25,31 +25,35 @@ export const ListItem = styled.li`
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
-  gap: ${props => props.theme.spacing(2)};
+  gap: ${props => props.theme.spacing(3)};
   margin: 0;
   padding: ${props => props.theme.spacing(1)};
   /* width: 230px; */
    width: 100%;
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
 `
 
 export const Name = styled.span`
-width: calc(100% / 3);
+width: calc(100% / 2.2);
 /* text-align: left; */
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
 `
 
 export const Phone = styled.span`
 /* text-align: left; */
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
    /* font-weight: 700; */
 `
 
 export const BtnDelete = styled.button`
 margin-left: auto;
 font-size: 12px;
-   padding: ${props => props.theme.spacing(1)} ${props => props.theme.spacing(2)};   
-   border-radius: ${props => props.theme.radii.sm};
-   text-transform: capitalize;
-   font-weight: 500;
+   padding: 0;
+   /* ${props => props.theme.spacing(1)} ${props => props.theme.spacing(2)};    */
+   border: none;
+   border-radius: ${({ theme }) => theme.radii.sm};
+   /* ${props => props.theme.radii.sm}; */
+   /* text-transform: capitalize;
+   font-weight: 500; */
+   color: ${({ theme }) => theme.colors.red};
 `
