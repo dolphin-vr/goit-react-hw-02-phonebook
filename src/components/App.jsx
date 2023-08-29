@@ -6,6 +6,7 @@ import { Layout } from "./Layout";
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { MdOutlineContactPhone } from "react-icons/md";
 
 const optNotiflx = {
   // width: '380px',
@@ -28,6 +29,12 @@ export class App extends Component {
     }
   }
 
+  deleteContact = contactId =>{
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(el => (el.id !== contactId))
+    }))
+  }
+
   isInList = contact =>{
     return this.state.contacts.some(el => (el.name.toLowerCase()===contact.name.toLowerCase()))
   }
@@ -46,11 +53,11 @@ export class App extends Component {
 
     return (
       <Layout>
-        <h1>Phonebook</h1>
+        <h1><MdOutlineContactPhone size={48} /> Phonebook</h1>
         <ContactForm onAdd={this.addContact}/>
         <h2>Contacts</h2>
         <Filter filter={filter} onChangeFilter={this.handleFilter} />
-        <ContactList contacts={filteredContacts}/>
+        <ContactList contacts={filteredContacts} onClick={this.deleteContact}/>
         <GlobalStyle />
       </Layout>
     );
