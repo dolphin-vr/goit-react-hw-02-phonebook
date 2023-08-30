@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 import { Component } from 'react';
 import { GlobalStyle } from "./GlobalStyle";
-import { Layout } from "./Layout";
+import { Layout, Title } from "./Layout";
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -53,7 +53,7 @@ export class App extends Component {
 
     return (
       <Layout>
-        <h1><MdOutlineContactPhone size={48} /> Phonebook</h1>
+        <Title><MdOutlineContactPhone size={48} /> Phonebook</Title>
         <ContactForm onAdd={this.addContact}/>
         <h2>Contacts</h2>
         <Filter filter={filter} onChangeFilter={this.handleFilter} />

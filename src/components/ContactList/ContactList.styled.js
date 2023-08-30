@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.h2`
-   margin: ${props => props.theme.spacing(4)} auto ${props => props.theme.spacing(3)};
+   margin: ${({theme}) => theme.spacing(4)} auto ${({theme}) => theme.spacing(3)};
    font-size: 32px;
 `
 
@@ -22,38 +22,26 @@ export const List = styled.ul`
 `
 
 export const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-  gap: ${props => props.theme.spacing(3)};
-  margin: 0;
-  padding: ${props => props.theme.spacing(1)};
-  /* width: 230px; */
+   display: flex;
+   align-items: center;
+   gap: ${props => props.theme.spacing(3)};
+   margin: 0;
+   padding: ${props => props.theme.spacing(1)};
    width: 100%;
-  /* outline: 1px solid blue; */
 `
 
 export const Name = styled.span`
-width: calc(100% / 2.2);
-/* text-align: left; */
-  /* outline: 1px solid green; */
+   width: calc(100% / 2.2);
 `
 
 export const Phone = styled.span`
-/* text-align: left; */
-  /* outline: 1px solid green; */
-   /* font-weight: 700; */
 `
 
 export const BtnDelete = styled.button`
-margin-left: auto;
-font-size: 12px;
+   margin-left: auto;
+   font-size: 12px;
    padding: 0;
-   /* ${props => props.theme.spacing(1)} ${props => props.theme.spacing(2)};    */
    border: none;
    border-radius: ${({ theme }) => theme.radii.sm};
-   /* ${props => props.theme.radii.sm}; */
-   /* text-transform: capitalize;
-   font-weight: 500; */
    color: ${({ theme }) => theme.colors.red};
 `
