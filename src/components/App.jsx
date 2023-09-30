@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid';
-import { Notify } from 'notiflix';
 import { Component } from 'react';
 import { GlobalStyle } from "./GlobalStyle";
 import { Layout, Title } from "./Layout";
@@ -7,12 +6,16 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { MdOutlineContactPhone } from "react-icons/md";
+import toast, { Toaster } from 'react-hot-toast';
 
-const optNotiflx = {
-  // width: '380px',
+const toastOptions  = {
   position: 'center-top',
-  timeout: 5000,
-  fontSize: '18px',
+  duration: 5000,
+  style: {
+    width: '100%',
+    fontSize: '22px',
+    background: '#f7ba60',
+  },  
 };
 
 export class App extends Component {
@@ -20,7 +23,6 @@ export class App extends Component {
     contacts: [],
     filter: ''
   };
-
   
   componentDidMount() {
     const savedContacts = localStorage.getItem('contacts');
@@ -39,7 +41,7 @@ export class App extends Component {
 
   addContact = contact => {
     if (this.isInList(contact)) {
-      Notify.warning(`${contact.name} is already in contacts`, optNotiflx)
+      toast(`${contact.name} is already in contacts`, toastOptions );
     } else{
       this.setState(prevState =>({contacts: [...prevState.contacts, {id: nanoid(), ...contact}]}))
     }
@@ -75,6 +77,7 @@ export class App extends Component {
         <Filter filter={filter} onChangeFilter={this.handleFilter} />
         <ContactList contacts={filteredContacts} onClick={this.deleteContact}/>
         <GlobalStyle />
+        <Toaster />
       </Layout>
     );
   }
