@@ -10,6 +10,7 @@ const theme = {
     red: '#ff0000',
     green: '#00bb00',
     blue: "blue",
+    orange: '#f7ba60',
   },
   radii: {
     sm: '4px',
